@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>My Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- 桌面端样式 -->
+    <link rel="stylesheet" href="./design/style.css" media="screen and (min-width: 768px)">
+    
+    <!-- 移动端样式 -->
+    <link rel="stylesheet" href="./design/mobile.css" media="screen and (max-width: 767px)">
 </head>
 <body>
     <div id="outside-frame">
@@ -13,13 +18,14 @@
         <div id="main-frame">
             <!-- 头像框架 -->
             <div class="image-frame">
-                <img src="https://raw.githubusercontent.com/reese1399/Profile-Web/main/profile/image%20file/IMG1.jpeg" alt="Profile Image">
+                <img src="./image file/nandar.png" alt="Profile Image">
             </div>
             <!-- 个人资料框架 -->
             <div class="profile-frame">
                 <div class="profile-info">
                     <div class="profile-text profile-name">Jennie Kim</div>
-                    <div class="profile-text">职业</div>
+                    <div class="profile-text">Korean Singer</div>
+                    <div class="profile-text">cchenyize@outlook.com</div>
                 </div>
             </div>
             <!-- 导航目录 - 可滚动固定 -->
@@ -46,7 +52,7 @@
                 </div>
                 <!-- f1.2 · 图片 -->
                 <div class="f1-2">
-                    <img src="https://raw.githubusercontent.com/reese1399/Profile-Web/main/profile/image%20file/IMG1.jpeg" alt="Profile Image">
+                    <img src="./image file/bentley.png" alt="Profile Image">
                 </div>
             </div>
             <!-- 分割线 -->
@@ -74,14 +80,14 @@
                     </div>
                     <!-- f2.3.2 图片上传区域 -->
                     <div class="f2-3-2">
-                        <img src="https://raw.githubusercontent.com/reese1399/Profile-Web/main/profile/image%20file/IMG1.jpeg" alt="Description">
+                        <img src="./image file/IMG1.jpeg" alt="Description">
                     </div>
                 </div>
                 <!-- f2.4 框架 -->
                 <div class="f2-4">
                     <!-- f2.4.2 图片上传区域（放在左边） -->
                     <div class="f2-4-2">
-                        <img src="https://raw.githubusercontent.com/reese1399/Profile-Web/main/profile/image%20file/IMG1.jpeg" alt="Description">
+                        <img src="./image file/IMG1.jpeg" alt="Description">
                     </div>
                     <!-- f2.4.1 文字区域（放在右边） -->
                     <div class="f2-4-1">
@@ -104,7 +110,7 @@
                     </div>
                     <!-- f2.5.2 图片上传区域 -->
                     <div class="f2-5-2">
-                        <img src="https://raw.githubusercontent.com/reese1399/Profile-Web/main/profile/image%20file/IMG1.jpeg" alt="Description">
+                        <img src="./image file/IMG1.jpeg" alt="Description">
                     </div>
                 </div>
             </div>
@@ -125,7 +131,7 @@
                 <div class="f3-3">
                     <!-- f3.3.1 图片上传区域（左侧） -->
                     <div class="f3-3-1">
-                        <img src="https://raw.githubusercontent.com/reese1399/Profile-Web/main/profile/image%20file/IMG1.jpeg" alt="Work Experience Image">
+                        <img src="./image file/b3.png" alt="Work Experience Image">
                     </div>
                     <!-- f3.3.2 文字区域（右侧） -->
                     <div class="f3-3-2">
@@ -139,7 +145,7 @@
                 <div class="f3-4">
                     <!-- f3.4.1 图片上传区域（左侧） -->
                     <div class="f3-4-1">
-                        <img src="https://raw.githubusercontent.com/reese1399/Profile-Web/main/profile/image%20file/IMG1.jpeg" alt="Work Experience Image">
+                        <img src="./image file/b1.png" alt="Work Experience Image">
                     </div>
                     <!-- f3.4.2 文字区域（右侧） -->
                     <div class="f3-4-2">
@@ -153,9 +159,9 @@
                 <div class="f3-5">
                     <!-- f3.5.1 图片上传区域（左侧） -->
                     <div class="f3-5-1">
-                        <img src="https://raw.githubusercontent.com/reese1399/Profile-Web/main/profile/image%20file/IMG1.jpeg" alt="Work Experience Image">
+                        <img src="./image file/b2.png" alt="Work Experience Image">
                     </div>
-                    <!-- f3.5.2 文字区域（右侧） -->
+                    <!-- f3.5.2 文字区域（侧） -->
                     <div class="f3-5-2">
                         <div class="f3-text-content">
                             <h3 class="f3-content-title">2016 - 2018</h3>
@@ -308,7 +314,7 @@
             
             <!-- 二维码容器框架 qr-container-frame -->
             <div class="qr-code-container">
-                <!-- 二维码图片框架 qr-image-frame -->
+                <!-- 二维��图片框架 qr-image-frame -->
                 <img src="image file/wechatqr.png" 
                      alt="WeChat QR Code" 
                      class="qr-code-image">

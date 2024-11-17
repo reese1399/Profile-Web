@@ -1,0 +1,98 @@
+/* 基础设置 */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;          /* 最小高度为视口高度 */
+    background-color: #e8e3e8;   /* 设置背景色，确保整个页面都有背景 */
+}
+
+#outside-frame {
+    border: none;
+    padding: 0;
+    margin: 0;
+    position: relative;         /* 改为相对定位 */
+    width: 100%;
+    min-height: 100vh;          /* 最小高度为视口高度 */
+    box-sizing: border-box;      /* 边框包含在宽高中 */
+    background-color: #e8e3e8;   /* 背景颜色 */
+    padding-bottom: 100px;       /* 底部内边距 */
+}
+
+#main-frame {
+    width: 100%;                  /* 主框架宽度 */
+    height: auto;                /* 高度自适应 */
+    margin: 120px auto 100px;    /* 恢复原来的边距 */
+    position: relative;          /* 相对定位 */
+    background-color: white;     /* 白色背景 */
+    box-shadow: 0 0 20px rgba(0,0,0,0.2); /* 添加阴影效果 */
+    min-height: 800px;           /* 最小高度 */
+}
+
+.image-frame {
+    width: 120px;              /* 固定宽度 */
+    height: 120px;             /* 与宽度相同，确保正方形 */
+    margin: 10px auto;         /* 居中显示 */
+    overflow: hidden;          /* 防止图片溢出 */
+    border-radius: 15px;       /* 圆角效果 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 添加阴影效果 */
+    position: absolute;        /* 改为绝对定位 */
+    transform: translateX(-80%); /* 使其向左移动 */
+    top: -70px;                 /* 上移60px */
+    left: 35%;                  /* 添加左侧定位 */
+    z-index: 10;               /* 只修改 z-index 确保显示在顶层 */
+}
+
+.image-frame img {
+    width: 100%;              /* 图片填满容器宽度 */
+    height: 100%;             /* 图片填满容器高度 */
+    object-fit: cover;        /* 保持图片比例并填充空间 */
+    object-position: center;   /* 图片居中显示 */
+    display: block;           /* 移除图片底部间隙 */
+}
+
+.profile-frame {
+    width: 100%;
+    height: 175px;              /* 个人资料框架高度 */
+    background-color: #333333;   /* 深灰色背景 */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;              /* 弹性布局 */
+    justify-content: center;    /* 水平居中 */
+    align-items: center;        /* 垂直居中 */
+    margin: 0;                  /* 移除所有边距 */
+    position: relative;         /* 相对定位 */
+}
+
+.profile-info {
+    display: flex;              /* 弹性布局 */
+    flex-direction: column;     /* 纵向排列 */
+    gap: 4px;                   /* 元素间距 */
+    margin-top: 65px;           /* 上边距 */
+}
+
+.profile-text {
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 12px;            /* 文字大小 */
+    width: 300px;               /* 文本框宽度 */
+    min-height: 30px;
+    text-align: left;         /* 文字居中 */
+    line-height: 0px;          /* 行高 */
+    color: white;               /* 白色文字 */
+    background: none;
+    transform: translateX(-3%); /* 使其向左移动 */
+}
+
+.profile-name {
+    font-size: 24px;            /* 名字文字大小 */
+    line-height: 0px;          /* 名字行高 */
+    transform: translateX(-4%); /* 使其向左移动 */
+}
+
+.profile-text:nth-child(2) {
+    font-size: 12px;            /* 职业文字大小 */
+    line-height: 0px;          /* 职业行高 */
+    transform: translateX(-3%); /* 使其向左移动 */
+}

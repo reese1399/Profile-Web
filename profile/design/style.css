@@ -51,7 +51,7 @@ html, body {
 
 .profile-frame {
     width: 100%;
-    height: 225px;              /* 个人资料框架高度 */
+    height: 240px;              /* 个人资料框架高度 */
     background-color: #333333;   /* 深灰色背景 */
     padding: 20px;
     box-sizing: border-box;
@@ -64,13 +64,13 @@ html, body {
     display: flex;              /* 弹性布局 */
     flex-direction: column;     /* 纵向排列 */
     gap: 4px;                   /* 元素间距 */
-    margin-top: 65px;           /* 上边距 */
+    margin-top: 50px;           /* 上边距 */
 }
 
 .profile-text {
     padding: 5px;
     border-radius: 5px;
-    font-size: 24px;            /* 文字大小 */
+    font-size: 17px;            /* 文字大小 */
     width: 300px;               /* 文本框宽度 */
     min-height: 30px;
     text-align: center;         /* 文字居中 */
@@ -80,12 +80,12 @@ html, body {
 }
 
 .profile-name {
-    font-size: 44px;            /* 名字文字大小 */
+    font-size: 38px;            /* 名字文字大小 */
     line-height: 50px;          /* 名字行高 */
 }
 
 .profile-text:nth-child(2) {
-    font-size: 30px;            /* 职业文字大小 */
+    font-size: 20px;            /* 职业文字大小 */
     line-height: 30px;          /* 职业行高 */
 }
 
