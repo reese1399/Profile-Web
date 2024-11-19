@@ -1,73 +1,88 @@
-// 初始化滚动处理函数
-function initScrollHandler() {
-    // 获取导航栏和占位符元素
-    const nav = document.querySelector('.navigation-frame');
-    const placeholder = document.querySelector('.navigation-placeholder');
-    // 获取导航栏原始位置的顶部偏移量
-    const navOffset = nav.offsetTop;
-
-    // 处理滚动事件的函数
+document.addEventListener('DOMContentLoaded', function() {
+    const navigationFrame = document.querySelector('.navigation-frame');
+    const navigationPlaceholder = document.querySelector('.navigation-placeholder');
+    const navItems = document.querySelectorAll('.nav-item');
+    let lastScrollTop = 0;
+    
+    // 检查是否是移动设备
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    
+    // 滚动处理函数
     function handleScroll() {
-        // 判断页面滚动位置是否超过导航栏原始位置
-        if (window.pageYOffset >= navOffset) {
-            // 超过则添加固定定位类
-            nav.classList.add('sticky');
-            // 显示占位符防止页面跳动
-            placeholder.classList.add('active');
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const mainFrame = document.querySelector('#main-frame');
+        const profileFrame = document.querySelector('.profile-frame');
+        const navigationTop = mainFrame.offsetTop + profileFrame.offsetHeight;
+        
+        // 通用行为：当滚动超过导航栏位置时固定导航栏
+        if (scrollTop >= navigationTop) {
+            navigationFrame.style.position = 'fixed';
+            navigationFrame.style.top = '0';
+            navigationFrame.style.zIndex = '1000';
+            navigationPlaceholder.style.display = 'block';
+            
+            if (isMobile) {
+                navigationFrame.style.width = '100%';
+                // 移动端特有的向下滚动隐藏，向上滚动显示
+                if (scrollTop > lastScrollTop) {
+                    navigationFrame.style.transform = 'translateY(-100%)';
+                } else {
+                    navigationFrame.style.transform = 'translateY(0)';
+                }
+            } else {
+                // 桌面端固定宽度
+                navigationFrame.style.width = '80%';
+                navigationFrame.style.left = '50%';
+                navigationFrame.style.transform = 'translateX(-50%)';
+            }
         } else {
-            // 未超过则移除固定定位类
-            nav.classList.remove('sticky');
-            // 隐藏占位符
-            placeholder.classList.remove('active');
+            // 恢复原始状态
+            navigationFrame.style.position = 'relative';
+            navigationFrame.style.transform = 'none';
+            navigationFrame.style.width = '100%';
+            navigationFrame.style.left = 'auto';
+            navigationPlaceholder.style.display = 'none';
+        }
+        
+        lastScrollTop = scrollTop;
+    }
+
+    // 添加滚动事件监听
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // 点击导航项处理函数
+    function handleNavClick(event) {
+        const targetText = event.target.textContent.toLowerCase();
+        let targetSection;
+        
+        switch(targetText) {
+            case 'about':
+                targetSection = document.querySelector('.frame1');
+                break;
+            case 'content':
+                targetSection = document.querySelector('.frame2');
+                break;
+            case 'work experience':
+                targetSection = document.querySelector('.frame3');
+                break;
+            case 'review':
+                targetSection = document.querySelector('.frame4');
+                break;
+            case 'contact':
+                targetSection = document.querySelector('.frame5');
+                break;
+            case 'follow me':
+                targetSection = document.querySelector('.frame6');
+                break;
+        }
+        
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
         }
     }
 
-    // 监听窗口滚动事件
-    window.addEventListener('scroll', handleScroll);
-}
-
-// 初始化导航点击功能
-function initNavigation() {
-    // 获取所有导航项
-    const navItems = document.querySelectorAll('.nav-item');
-    
-    // 定义导航项与对应部分的映射
-    const sections = {
-        'ABOUT': '.frame1',
-        'CONTENT': '.frame2',
-        'WORK EXPERIENCE': '.frame3',
-        'REVIEW': '.frame4',
-        'CONTACT': '.frame5',
-        'FOLLOW ME': '.frame6'
-    };
-
     // 为每个导航项添加点击事件
     navItems.forEach(item => {
-        item.addEventListener('click', function() {
-            // 获取对应部分的选择器
-            const sectionSelector = sections[this.textContent];
-            // 获取对应部分的元素
-            const section = document.querySelector(sectionSelector);
-            
-            if (section) {
-                // 获取导航栏高度
-                const navHeight = document.querySelector('.navigation-frame').offsetHeight;
-                
-                // 计算目标位置
-                const targetPosition = section.offsetTop - navHeight;
-                
-                // 平滑滚动到目标位置
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
+        item.addEventListener('click', handleNavClick);
     });
-}
-
-// 当文档加载完成时初始化所有功能
-document.addEventListener('DOMContentLoaded', function() {
-    initScrollHandler();
-    initNavigation();
 }); 

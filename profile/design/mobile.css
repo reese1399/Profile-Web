@@ -4,95 +4,1201 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    min-height: 100vh;          /* 最小高度为视口高度 */
-    background-color: #e8e3e8;   /* 设置背景色，确保整个页面都有背景 */
+    min-height: 100vh;          
+    background-color: #e8e3e8;   
+    overscroll-behavior-x: none;  /* 防止水平过度滚动 */
+    overflow-x: hidden;          /* 禁止水平滚动 */
+    position: fixed;             /* 固定位置 */
+    overflow-y: auto;            /* 允许垂直滚动 */
 }
 
 #outside-frame {
     border: none;
     padding: 0;
     margin: 0;
-    position: relative;         /* 改为相对定位 */
+    position: relative;         
     width: 100%;
-    min-height: 100vh;          /* 最小高度为视口高度 */
-    box-sizing: border-box;      /* 边框包含在宽高中 */
-    background-color: #e8e3e8;   /* 背景颜色 */
-    padding-bottom: 100px;       /* 底部内边距 */
+    min-height: 100vh;          
+    box-sizing: border-box;      
+    background-color: #e8e3e8;   
+    padding-bottom: 50px;       
+    overflow-x: hidden;          /* 禁止水平滚动 */
 }
 
 #main-frame {
-    width: 100%;                  /* 主框架宽度 */
-    height: auto;                /* 高度自适应 */
-    margin: 120px auto 100px;    /* 恢复原来的边距 */
-    position: relative;          /* 相对定位 */
-    background-color: white;     /* 白色背景 */
-    box-shadow: 0 0 20px rgba(0,0,0,0.2); /* 添加阴影效果 */
-    min-height: 800px;           /* 最小高度 */
+    width: 100%;                  
+    height: auto;                
+    margin: 100px auto 20px;    
+    position: relative;          
+    background-color: white;     
+    box-shadow: 0 0 30px rgba(0,0,0,0.2); 
+    min-height: 800px;           
+    overflow-x: hidden;
+    box-sizing: border-box;      /* 确保内边距计入总宽度 */
 }
 
+/* 内容区域限制 */
+.profile-frame,
+.frame1,
+.frame2,
+.frame3,
+.frame4,
+.frame5,
+.frame6 {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 15px;         /* 添加左右内边距 */
+    padding-right: 15px;
+    margin-left: auto;          /* 居中对齐 */
+    margin-right: auto;
+    position: relative;         /* 相对定位 */
+    left: 0;                   /* 重置左侧位置 */
+    transform: none;           /* 移除transform */
+}
+
+/* 确保所有图片容器不会溢出 */
+.f1-2,
+.f2-3-2,
+.f2-4-2,
+.f2-5-2,
+.f3-3-1,
+.f3-4-1,
+.f3-5-1 {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* 图片样式 */
+.f1-2 img,
+.f2-3-2 img,
+.f2-4-2 img,
+.f2-5-2 img,
+.f3-3-1 img,
+.f3-4-1 img,
+.f3-5-1 img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* image-frame 修改定位方式 */
 .image-frame {
-    width: 120px;              /* 固定宽度 */
-    height: 120px;             /* 与宽度相同，确保正方形 */
-    margin: 10px auto;         /* 居中显示 */
-    overflow: hidden;          /* 防止图片溢出 */
-    border-radius: 15px;       /* 圆角效果 */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 添加阴影效果 */
-    position: absolute;        /* 改为绝对定位 */
-    transform: translateX(-80%); /* 使其向左移动 */
-    top: -70px;                 /* 上移60px */
-    left: 35%;                  /* 添加左侧定位 */
-    z-index: 10;               /* 只修改 z-index 确保显示在顶层 */
+    width: 100px;              
+    height: 100px;             
+    margin: 10px auto;         
+    border-radius: 15px;       
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    position: absolute;        
+    transform: translateX(-80%); 
+    top: 50px;                /* 将top从70px减少到50px */
+    left: 30%;                 
+    z-index: 1000;            
+    overflow: visible;         
 }
 
 .image-frame img {
-    width: 100%;              /* 图片填满容器宽度 */
-    height: 100%;             /* 图片填满容器高度 */
-    object-fit: cover;        /* 保持图片比例并填充空间 */
-    object-position: center;   /* 图片居中显示 */
-    display: block;           /* 移除图片底部间隙 */
+    width: 100%;              
+    height: 100%;             
+    object-fit: cover;        
+    object-position: center;   
+    display: block;           
+    border-radius: 15px;      
 }
 
 .profile-frame {
     width: 100%;
-    height: 175px;              /* 个人资料框架高度 */
-    background-color: #333333;   /* 深灰色背景 */
+    height: 175px;              
+    background-color: #333333;   
     padding: 20px;
     box-sizing: border-box;
-    display: flex;              /* 弹性布局 */
-    justify-content: center;    /* 水平居中 */
-    align-items: center;        /* 垂直居中 */
-    margin: 0;                  /* 移除所有边距 */
-    position: relative;         /* 相对定位 */
+    display: flex;              
+    justify-content: center;    
+    align-items: center;        
+    margin: 0;                  
+    position: relative;         
+    overflow: hidden;           /* 防止内容溢出 */
 }
 
 .profile-info {
-    display: flex;              /* 弹性布局 */
-    flex-direction: column;     /* 纵向排列 */
-    gap: 4px;                   /* 元素间距 */
-    margin-top: 65px;           /* 上边距 */
+    display: flex;              
+    flex-direction: column;     
+    gap: 4px;                   
+    margin-top: 65px;           
+    position: absolute;         /* 改为绝对定位 */
+    top: 20px;                 /* 固定位置 */
 }
 
 .profile-text {
-    padding: 12px;
+    padding: 8px;             
     border-radius: 5px;
-    font-size: 12px;            /* 文字大小 */
-    width: 300px;               /* 文本框宽度 */
-    min-height: 30px;
-    text-align: left;         /* 文字居中 */
-    line-height: 0px;          /* 行高 */
-    color: white;               /* 白色文字 */
+    font-size: 12px;          
+    width: 300px;             
+    min-height: 20px;         
+    text-align: left;         
+    line-height: 0px;         
+    color: white;             
     background: none;
-    transform: translateX(-3%); /* 使其向左移动 */
+    transform: translateX(-3%);
+    margin: 0px 0;            
+    user-select: none;        /* 防止文本被选中 */
 }
 
 .profile-name {
-    font-size: 24px;            /* 名字文字大小 */
-    line-height: 0px;          /* 名字行高 */
-    transform: translateX(-4%); /* 使其向左移动 */
+    font-size: 24px;          
+    line-height: 0px;         
+    transform: translateX(-3%);
+    margin-bottom: 12px;      /* 增加底部边距，让下面的文本往下移 */
 }
 
 .profile-text:nth-child(2) {
-    font-size: 12px;            /* 职业文字大小 */
-    line-height: 0px;          /* 职业行高 */
-    transform: translateX(-3%); /* 使其向左移动 */
+    font-size: 12px;          
+    line-height: 0px;         
+    transform: translateX(-3%);
+    margin-top: 0;            /* 移除负的上边距 */
+    padding-top: 8px;         /* 添加顶部内边距 */
+}
+
+.navigation-frame {
+    width: 100%;
+    height: 50px;
+    background-color: #e8e3e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    position: relative;          /* 改为相对定位 */
+    left: 0;                    /* 重置左侧位置 */
+    transform: none;            /* 重置变换 */
+}
+
+.nav-items {
+    display: flex;            
+    justify-content: center;  
+    gap: 12px;               
+    padding: 0 10px;         
+    width: 100%;             
+}
+
+.nav-item {
+    font-size: 9px;         /* 缩小字体 */
+    color: #333333;          
+    cursor: pointer;         
+    transition: all 0.3s;    
+    position: relative;      
+    padding: 3px 0;         /* 减小内边距 */
+    white-space: nowrap;    /* 防止文字换行 */
+}
+
+.nav-item::after {
+    content: '';               /* 创建下划线元素 */
+    position: absolute;        /* 绝对定位 */
+    bottom: 0;                /* 位于底部 */
+    left: 50%;               /* 从中间开始 */
+    width: 0;                /* 初始宽度为0 */
+    height: 2px;             /* 下划线高度 */
+    background-color: #333333; /* 下划线颜色 */
+    transition: all 0.3s;     /* 过渡效果 */
+    transform: translateX(-50%); /* 居中对齐 */
+}
+
+.nav-item:hover {
+    color: #000000;           /* 悬停时文字颜色加深 */
+    transform: translateY(-2px); /* 轻微上移效果 */
+}
+
+.nav-item:hover::after {
+    width: 100%;              /* 悬停时下划线展开到100%宽度 */
+}
+
+/* frame1 相关样式 */
+.frame1 {
+    width: 100%;
+    padding: 20px 25px;        /* 添加左右内边距 */
+    box-sizing: border-box;
+}
+
+/* f1.1 文字内容区域 */
+.f1-1 {
+    width: 100%;
+    padding: 0 15px;          /* 添加左右内边距 */
+    margin-bottom: 30px;      /* 添加底部间 */
+}
+
+.f1-title {
+    font-size: 24px;         /* 标题字体大小 */
+    color: #333;
+    margin: 0 0 20px 0;      /* 下方间距减小到20px */
+    margin-top: 20px;
+}
+
+.f1-line {
+    width: 125px;            /* 线条宽度 */
+    height: 2px;             /* 线条高度 */
+    background-color: #333;   /* 线条颜色 */
+    margin: 0 0 20px 0;      /* 下方间距减小到20px */
+    margin-top: -10px;
+}
+
+.f1-text {
+    font-size: 13px;         /* 正文字体大小 */
+    line-height: 1.6;        /* 行高 */
+    color: #666;
+    margin: -5px 0 15px 0;      /* 下方间距减小到25px */
+}
+
+.contact-btn {
+    width: 105px;            /* 按钮宽度 */
+    padding: 8px 0;         /* 钮内边距 */
+    background-color: #333;   /* 按钮背景色 */
+    color: white;            /* 按钮文字颜色 */
+    border: none;
+    border-radius: 5px;      /* 圆角 */
+    cursor: pointer;         /* 鼠标样 */
+    transition: all 0.3s;    /* 过渡效果 */
+    font-size: 12px;         /* 按钮文字大小 */
+    margin: -15px 0 0 0;        /* 增加负的上边距，让按钮更往上移 */
+}
+
+.contact-btn:hover {
+    background-color: #000;  /* 悬停时背景色 */
+    transform: translateY(-2px); /* 悬停时上移效果 */
+}
+
+/* f1.2 图片区域 */
+.f1-2 {
+    width: 100%;
+    padding: 0 15px;          /* 添加左右内边距 */
+    margin-top: -10px;
+}
+
+.f1-2 img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;       /* 可选：添加圆角 */
+}
+
+/* 分割线样式 */
+.divider {
+    width: 85%;              /* 线条宽度 */
+    height: 1.2px;           /* 线条高度 */
+    background-color: #e0e0e0; /* 线条颜色 */
+    margin: 20px auto;       /* 上下边距20px，左右自动居中 */
+}
+
+/* frame2 相关样式 */
+.frame2 {
+    width: 100%;
+    padding: 20px 25px;        /* 添加左右内边距 */
+    box-sizing: border-box;
+}
+
+/* f2.1 标题样式 */
+.f2-1 {
+    text-align: center;     /* 标题居中 */
+    margin-top: -25px;
+    margin-bottom: 40px;    /* 与正文的间距 */
+}
+
+.f2-title {
+    font-size: 24px;       /* 标题字体大小 */
+    color: #333;
+    margin: 0 0 20px 0;    /* 标题下方间距 */
+}
+
+.f2-line {
+    width: 92px;          /* 线条宽度 */
+    height: 2px;           /* 线条高 */
+    background-color: #333; /* 线条颜色 */
+    margin: 0 auto;        /* 线条居中 */
+    margin-top: -13px;
+}
+
+/* f2.2 正文样式 */
+.f2-2 {
+    width: 100%;           /* 宽满 */
+    padding: 0 20px;       /* 增加左右内边距 */
+    box-sizing: border-box; /* 边框盒模型 */
+    font-size: 12px;       /* 增大字体大小 */
+    line-height: 1.6;        /* 增加行高 */
+    color: #666;           /* 文字色 */
+    margin: 40px 0;        /* 增加上下外边距 */
+    text-align: justify;   /* 文本两端对齐 */
+    margin-top: -30px;
+}
+
+/* f2.3 相关样式 */
+.f2-3 {
+    width: 100%;
+    padding: 8px 10px;        /* 与 frame1 一致的内边距 */
+    box-sizing: border-box;
+    margin-top: -40px;
+}
+
+/* f2.3.1 文字区域样式   */
+.f2-3-1 {
+    width: 100%;
+    padding: 0 10px;         
+    margin-bottom: 10px;     
+}
+
+.f2-3-1 .text-content {
+    width: 100%;
+}
+
+.f2-3-1 .f1-title {
+    font-size: 24px;         
+    color: #333;
+    margin: 0 0 20px 0;      
+    margin-top: 20px;
+}
+
+.f2-3-1 .f1-line {
+    width: 125px;            
+    height: 2px;             
+    background-color: #333;   
+    margin: 0 0 20px 0;      
+    margin-top: -10px;
+}
+
+.f2-3-1 .f1-text {
+    font-size: 13px;         
+    line-height: 1.6;        
+    color: #666;
+    margin: -5px 0 15px 0;   
+}
+
+/* f2.3.2 图片区域样式  */
+.f2-3-2 {
+    width: 100%;
+    padding: 0 7px;       
+}
+
+.f2-3-2 img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;      
+}
+
+/* f2.4 相关样式 */
+.f2-4 {
+    width: 100%;
+    padding: 8px 10px;        
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;    /* 改为纵向排列 */
+    margin: -10px 0 15px 0;   
+}
+
+/* f2.4.1 文字区域样式 - 放在上面 */
+.f2-4-1 {
+    width: 100%;
+    padding: 0 10px;         
+    margin: -5px 0 10px 0;   
+    order: 1;                /* 设置顺序为1，确保在上面 */
+}
+
+.f2-4-1 .text-content {
+    width: 100%;
+}
+
+/* f2.4.2 图片区域样式 - 放在下面 */
+.f2-4-2 {
+    width: 100%;
+    padding: 0 7px;          
+    margin: -10px 0 0px 0;   
+    order: 2;               /* 设置顺序为2，确保在下面 */
+}
+
+.f2-4-2 img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* f2.5 相关样式 */
+.f2-5 {
+    width: 100%;
+    padding: 8px 10px;        /* 与 frame1 一致的内边距 */
+    box-sizing: border-box;
+    margin: -30px 0 0px 0;   
+}
+
+/* f2.5.1 文字区域样式   */
+.f2-5-1 {
+    width: 100%;
+    padding: 0 10px;         
+    margin-bottom: 10px;     
+}
+
+.f2-5-1 .text-content {
+    width: 100%;
+}
+
+.f2-5-1 .f1-title {
+    font-size: 24px;         
+    color: #333;
+    margin: 0 0 20px 0;      
+    margin-top: 20px;
+}
+
+.f2-5-1 .f1-line {
+    width: 125px;            
+    height: 2px;             
+    background-color: #333;   
+    margin: 0 0 20px 0;      
+    margin-top: -10px;
+}
+
+.f2-5-1 .f1-text {
+    font-size: 13px;         
+    line-height: 1.6;        
+    color: #666;
+    margin: -5px 0 15px 0;   
+}
+
+/* f2.5.2 图片区域样式  */
+.f2-5-2 {
+    width: 100%;
+    padding: 0 7px;       
+}
+
+.f2-5-2 img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;      
+}
+
+/* 第二个分割线样式 */
+.divider-second {
+    width: 85%;              /* 线条宽度 */
+    height: 1.2px;           /* 线条高度 */
+    background-color: #e0e0e0; /* 线条颜色 */
+    margin: 20px auto;       /* 上下边距20px，左右自动居中 */
+}
+
+/* f3.1 标题样式 - 复制 f2.1 的样式 */
+.f3-1 {
+    text-align: center;     /* 标题居中 */
+    margin-top: 10px;
+    margin-bottom: 40px;    /* 与正文的间距 */
+}
+
+.f3-title {
+    font-size: 24px;       /* 标题字体大小 */
+    color: #333;
+    margin: 0 0 20px 0;    /* 标题下方间距 */
+}
+
+.f3-line {
+    width: 160px;          /* 线条宽度 */
+    height: 2px;           /* 线条高度 */
+    background-color: #333; /* 线条颜色 */
+    margin: 0 auto;        /* 线条居中 */
+    margin-top: -13px;
+}
+
+/* f3.2 副标题样式 */
+.f3-2 {
+    width: 100%;           /* 宽度占满 */
+    padding: 0 30px;       /* 增加左右内边距 */
+    box-sizing: border-box; /* 边框盒模型 */
+    font-size: 12px;       /* 字体大小 */
+    line-height: 1.6;      /* 行高 */
+    color: #666;           /* 文字颜色 */
+    margin: 40px 0;        /* 上下外边距 */
+    text-align: center;
+    margin-top: -30px;
+}
+
+.f3-subtitle {
+    font-size: 12px;      /* 副标题字体大小 */
+    color: #666;          /* 文字颜色 */
+    margin: 0;            /* 移除默认边距 */
+    line-height: 1.6;     /* 行高 */
+}
+
+/* f3.3 相关样式更新 */
+.f3-3 {
+    width: 100%;              /* 宽度占满 */
+    padding: 30px 60px;       /* 内边距 */
+    margin-top: -45px;           /* 上下间距 */
+    box-sizing: border-box;   /* 边框盒模型 */
+    display: flex;            /* 弹性布局 */
+    gap: 20px;               /* 左右区域之间的间距 */
+}
+
+/* f3.3.1 图片区域样式（左侧） */
+.f3-3-1 {
+    width: 35%;             /* 宽度保持25% */
+    height: 80px;          /* 高度保持不变 */
+    overflow: hidden;       /* 超出部分隐藏 */
+    margin-left: -15px;
+    
+}
+
+.f3-3-1 img {
+    width: 100%;           /* 图片宽度 */
+    height: 100%;          /* 图片高度 */
+    object-fit: cover;     /* 图片填充方式 */
+    border-radius: 8px;    /* 圆角 */
+}
+
+/* f3.3.2 文字区域样式   */
+.f3-3-2 {
+    width: 70%;
+    padding: 0 10px;         
+    margin-bottom: 10px;   
+    border-radius: 3px;    /* 圆角 */
+    background-color: #e8e3e8; /* 背景色 */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* 阴影效果 */
+    margin-left: auto;     /* 使框架靠右对齐 */  
+}
+
+.f3-3-2 .text-content {
+    width: 100%;
+}
+
+.f3-3-2 .f3-content-title {
+    font-size: 14px;         
+    color: #000000;  
+    margin-top: 5px;
+}
+
+.f3-3-2 .f3-content-text {
+    font-size: 10px;         
+    line-height: 1.6;        
+    color: #000000;
+    margin: -5px 0 10px 0;   
+}
+
+/* f3.4 相关样式更新 */
+.f3-4 {
+    width: 100%;              /* 宽度占满 */
+    padding: 30px 60px;       /* 内边距 */
+    margin-top: -45px;           /* 上下间距 */
+    box-sizing: border-box;   /* 边框盒模型 */
+    display: flex;            /* 弹性布局 */
+    gap: 20px;               /* 左右区域之间的间距 */
+}
+
+/* f3.4.1 图片区域样式（左侧） */
+.f3-4-1 {
+    width: 35%;             /* 宽度保持25% */
+    height: 80px;          /* 高度保持不变 */
+    overflow: hidden;       /* 超出部分隐藏 */
+    margin-left: -15px;
+    
+}
+
+.f3-4-1 img {
+    width: 100%;           /* 图片宽度 */
+    height: 100%;          /* 图片高度 */
+    object-fit: cover;     /* 图片填充方式 */
+    border-radius: 8px;    /* 圆角 */
+}
+
+/* f3.4.2 文字区域样式   */
+.f3-4-2 {
+    width: 70%;
+    padding: 0 10px;         
+    margin-bottom: 10px;   
+    border-radius: 3px;    /* 圆角 */
+    background-color: #e8e3e8; /* 背景色 */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* 阴影效果 */
+    margin-left: auto;     /* 使框架靠右对齐 */  
+}
+
+.f3-4-2 .text-content {
+    width: 100%;
+}
+
+.f3-4-2 .f3-content-title {
+    font-size: 14px;         
+    color: #000000;  
+    margin-top: 5px;
+}
+
+.f3-4-2 .f3-content-text {
+    font-size: 10px;         
+    line-height: 1.6;        
+    color: #000000;
+    margin: -5px 0 10px 0;   
+}
+
+/* f3.5 相关样式更新 */
+.f3-5 {
+    width: 100%;              /* 宽度占满 */
+    padding: 30px 60px;       /* 内边距 */
+    margin-top: -45px;           /* 上下间距 */
+    box-sizing: border-box;   /* 边框盒模型 */
+    display: flex;            /* 弹性布局 */
+    gap: 20px;               /* 左右区域之间的间距 */
+}
+
+/* f3.5.1 图片区域样式（左侧） */
+.f3-5-1 {
+    width: 35%;             /* 宽度保持25% */
+    height: 80px;          /* 高度保持不变 */
+    overflow: hidden;       /* 超出分隐 */
+    margin-left: -15px;
+    
+}
+
+.f3-5-1 img {
+    width: 100%;           /* 图片宽度 */
+    height: 100%;          /* 图片高度 */
+    object-fit: cover;     /* 图片填充式 */
+    border-radius: 8px;    /* 圆角 */
+}
+
+/* f3.5.2 文字区域样式   */
+.f3-5-2 {
+    width: 70%;
+    padding: 0 10px;
+    border-radius: 3px;    /* 圆角 */
+    background-color: #e8e3e8; /* 背景色 */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* 阴影效果 */
+    margin-left: auto;     /* 使框架靠右对齐 */  
+}
+
+.f3-5-2 .text-content {
+    width: 100%;
+}
+
+.f3-5-2 .f3-content-title {
+    font-size: 14px;         
+    color: #000000;  
+    margin-top: 5px;
+}
+
+.f3-5-2 .f3-content-text {
+    font-size: 10px;         
+    line-height: 1.6;        
+    color: #000000;
+    margin: -5px 0 10px 0;   
+}
+
+/* 分割线样式 */
+.divider-third {
+    width: 85%;              /* 线条宽度 */
+    height: 1.2px;           /* 线条高度 */
+    background-color: #e0e0e0; /* 线条颜色 */
+    margin: 20px auto;       /* 上下边距20px，左右自动居中 */
+}
+
+/* f4.1 标题样式 - 复制 f3.1 的样式 */
+.f4-1 {
+    text-align: center;     /* 标题居中 */
+    margin-top: 10px;
+    margin-bottom: 40px;    /* 与正文的间距 */
+}
+
+.f4-title {
+    font-size: 24px;       /* 标题字体大小 */
+    color: #333;
+    margin: 0 0 20px 0;    /* 标题下方间距 */
+}
+
+.f4-line {
+    width: 80px;          /* 线条宽度 */
+    height: 2px;           /* 线条高度 */
+    background-color: #333; /* 线条颜色 */
+    margin: 0 auto;        /* 线条居中 */
+    margin-top: -13px;
+}
+
+/* f4.2 副标题样式 - 复制 f3.2 的样式 */
+.f4-2 {
+    width: 100%;           /* 宽度占满 */
+    padding: 0 30px;       /* 增加左右内边距 */
+    box-sizing: border-box; /* 边框盒模型 */
+    font-size: 12px;       /* 字体大小 */
+    line-height: 1.6;      /* 行高 */
+    color: #666;           /* 文字颜色 */
+    margin: 40px 0;        /* 上下外边距 */
+    text-align: center;
+    margin-top: -30px;
+}
+
+.f4-subtitle {
+    font-size: 12px;      /* 副标题字体大小 */
+    color: #666;          /* 文字颜色 */
+    margin: 0;            /* 移除默认边距 */
+    line-height: 1.6;     /* 行高 */
+}
+
+/* f4 容器样式 */
+.f4-container {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin-top: -20px;
+    display: flex;              
+    flex-wrap: wrap;           
+    justify-content: center;    /* 容器水平居中 */
+    gap: 15px;                 
+}
+
+/* f4.3, f4.4, f4.5 共同样式 */
+.f4-3, .f4-4, .f4-5 {
+    width: calc(50% - 10px);    
+    display: flex;
+    flex-direction: column;     
+    align-items: center;        /* 内容水平居中 */
+    justify-content: center;    /* 内容垂直居中 */
+    padding: 15px 10px;
+    background-color: #e8e3e8;
+    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 15px;        
+}
+
+/* 姓名样式 */
+.f4-name {
+    font-size: 14px;          
+    color: #000000;              
+    margin: 0 0 5px 0;       
+    text-align: center;       /* 文字居中 */
+    width: 100%;             /* 确保文字能完全居中 */
+}
+
+/* 职位样式 */
+.f4-position {
+    font-size: 12px;          
+    color: #000000;              
+    margin: 0 0 10px 0;       
+    text-align: center;       /* 文字居中 */
+    width: 100%;             /* 确保文字能完全居中 */
+}
+
+/* 引用文字样式 */
+.f4-quote {
+    font-size: 10px;          
+    color: #000000;              
+    line-height: 1.6;         
+    margin: 0;                
+    text-align: center;       /* 文字居中 */
+    font-style: normal;       
+    width: 100%;             /* 确保文字能完全居中 */
+    padding: 0 10px;         /* 添加左右内边距 */
+}
+
+/* 分割线样式 */
+.divider-fourth {
+    width: 85%;              /* 线条宽度 */
+    height: 1.2px;           /* 线条高度 */
+    background-color: #e0e0e0; /* 线条颜色 */
+    margin: 20px auto;       /* 上下边距20px，左右自动居中 */
+}
+
+/* f5.1 标题样式 - 复制 f4.1 的样式 */
+.f5-1 {
+    text-align: center;     /* 标题居中 */
+    margin-top: 10px;
+    margin-bottom: 40px;    /* 与正文的间距 */
+}
+
+.f5-title {
+    font-size: 24px;       /* 标题字体大小 */
+    color: #333;
+    margin: 0 0 20px 0;    /* 标题下方间距 */
+}
+
+.f5-line {
+    width: 80px;          /* 线条宽度 */
+    height: 2px;           /* 线条高度 */
+    background-color: #333; /* 线条颜色 */
+    margin: 0 auto;        /* 线条居中 */
+    margin-top: -13px;
+}
+
+/* f5.2 副标题样式 - 复制 f4.2 的样式 */
+.f5-2 {
+    width: 100%;           /* 宽度占满 */
+    padding: 0 30px;       /* 增加左右内边距 */
+    box-sizing: border-box; /* 边框盒模型 */
+    font-size: 12px;       /* 字体大小 */
+    line-height: 1.6;      /* 行高 */
+    color: #666;           /* 文字颜色 */
+    margin: 40px 0;        /* 上下外边距 */
+    text-align: center;
+    margin-top: -30px;
+}
+
+.f5-subtitle {
+    font-size: 12px;      /* 副标题字体大小 */
+    color: #666;          /* 文字颜色 */
+    margin: 0;            /* 移除默认边距 */
+    line-height: 1.6;     /* 行高 */
+}
+
+/* f5.3 表单样式 */
+.f5-3 {
+    width: 75%;              /* 进一步减小整体宽度 */
+    max-width: 600px;         
+    margin: 0 auto;           
+    padding: 0 20px;
+    margin-top: -30px;       
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;   
+    gap: 8px;                /* 进一步减小表单元素间距 */
+    align-items: center;     
+}
+
+.form-group {
+    width: 100%;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;            /* 减小内边距 */
+    border: 1px solid #ddd;  
+    border-radius: 6px;      /* 减小圆角 */
+    font-size: 13px;         /* 减小字体���小 */
+    transition: all 0.3s;    
+    box-sizing: border-box;  
+    height: 32px;           /* 减小输入框高度 */
+}
+
+.form-textarea {
+    width: 100%;
+    height: 100px;          /* 减小文本框高度 */
+    padding: 8px;           /* 减小内边距 */
+    border: 1px solid #ddd; 
+    border-radius: 6px;     /* 减小圆角 */
+    font-size: 13px;        /* 减小字体大小 */
+    resize: vertical;       
+    transition: all 0.3s;   
+    box-sizing: border-box; 
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #333;     /* 聚焦时的边框颜色 */
+    box-shadow: 0 0 5px rgba(0,0,0,0.1); /* 聚焦时的阴影效果 */
+}
+
+.submit-btn {
+    width: 55%;
+    padding: 10px;          
+    background-color: #333; 
+    color: white;          
+    border: none;
+    border-radius: 8px;    
+    font-size: 13px;       
+    cursor: pointer;       
+    transition: all 0.3s;  
+    display: block;        /* 设置为块级元素 */
+    margin: 0 auto;        /* 水平居中 */
+}
+
+.submit-btn:hover {
+    background-color: #000; /* 悬停时的背景色 */
+    transform: translateY(-2px); /* 悬停时上移效果 */
+}
+
+/* 分割线样式 */
+.divider-fifth {
+    width: 85%;              /* 线条宽度 */
+    height: 1.2px;           /* 线条高度 */
+    background-color: #e0e0e0; /* 线条颜色 */
+    margin: 20px auto;       /* 上下边距20px，左右自动居中 */
+}
+
+/* f6.1 标题样式 - 复制 f5.1 的样式 */
+.f6-1 {
+    text-align: center;     /* 标题居中 */
+    margin-top: 10px;
+    margin-bottom: 40px;    /* 与正文的间距 */
+}
+
+.f6-title {
+    font-size: 24px;       /* 标题字体大小 */
+    color: #333;
+    margin: 0 0 20px 0;    /* 标题下方间距 */
+}
+
+.f6-line {
+    width: 80px;          /* 线条宽度 */
+    height: 2px;           /* 线条高度 */
+    background-color: #333; /* 线条颜色 */
+    margin: 0 auto;        /* 线条居中 */
+    margin-top: -13px;
+}
+
+/* f6.2 副标题样式 - 复制 f5.2 的样式 */
+.f6-2 {
+    width: 100%;           /* 宽度占满 */
+    padding: 0 30px;       /* 增加左右内边距 */
+    box-sizing: border-box; /* 边框盒模型 */
+    font-size: 12px;       /* 字体大小 */
+    line-height: 1.6;      /* 行高 */
+    color: #666;           /* 文字颜色 */
+    margin: 40px 0;        /* 上下外边距 */
+    text-align: center;
+    margin-top: -30px;
+}
+
+.f6-subtitle {
+    font-size: 12px;      /* 副标题字体大小 */
+    color: #666;          /* 文字颜色 */
+    margin: 0;            /* 移除默认边距 */
+    line-height: 1.6;     /* 行高 */
+}
+
+/* f6 容器样式 */
+.f6-container {
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+    margin-top: -30px;
+}
+
+/* 社交媒体图标大框架 */
+.social_media_icon_frame {
+    width: 100%;
+    display: flex;              
+    flex-wrap: wrap;            /* 允许换行 */
+    justify-content: center;    
+    gap: 15px;                 /* 减小图标间距 */
+    padding: 10px;
+    margin: 0 auto;
+}
+
+/* f6.3, f6.4, f6.5, f6.6 共同样式 */
+.f6-3, .f6-4, .f6-5, .f6-6 {
+    width: calc(25% - 12px);    /* 每个图标占25%宽度，减去间距 */
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* 社交链接样式 */
+.social-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+/* 社交图标容器样式 */
+.social-icon {
+    width: 45px;               /* 减小图标容器尺寸 */
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+    margin-bottom: 5px;
+}
+
+/* 图标图片样式 */
+.icon-image {
+    width: 28px;              /* 减小图标尺寸 */
+    height: 28px;
+    transition: all 0.3s;
+}
+
+/* ��交文字样式 */
+.social-text {
+    font-size: 10px;          /* 减小文字大小 */
+    color: #666;
+    margin: 0;
+    transition: color 0.3s;
+}
+
+
+/* 微信弹窗主框架样式 wechat-popup-frame */
+.wechat-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+/* 弹窗内容框架样式 popup-content-frame */
+.popup-content {
+    background-color: white;
+    padding: 25px 20px 20px;   /* 减小内边距 */
+    border-radius: 12px;       /* 减小圆角 */
+    position: relative;
+    width: 85%;               /* 减小宽度 */
+    max-width: 300px;         /* 减小最大宽度 */
+    min-height: 350px;        /* 减小最小高度 */
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: popupFadeIn 0.3s ease-out;
+}
+
+/* 弹窗动画效果 */
+@keyframes popupFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 关闭按钮样式 */
+.close-btn {
+    position: absolute;
+    top: 8px;                /* 调整位置 */
+    right: 12px;
+    font-size: 24px;         /* 减小字体 */
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+}
+
+/* 标题样式 */
+.popup-title {
+    font-size: 18px;         /* 减小字体 */
+    color: #333;
+    margin: 25px 0 25px 0;   /* 减小边距 */
+    font-weight: 500;
+}
+
+/* 二维码容器样式 */
+.qr-code-container {
+    width: 160px;            /* 减小尺寸 */
+    height: 160px;
+    margin: 0 auto 20px;     /* 减小边距 */
+    padding: 0;
+    background-color: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+}
+
+/* 二维码图片样式 */
+.qr-code-image {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: block;
+    border-radius: 13px;
+}
+
+/* 微信弹窗相关样式 */
+.popup-description {
+    display: flex;           /* 使用弹性布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center;     /* 垂直居中 */
+    gap: 5px;               /* 文字之间的间距 */
+    font-size: 14px;        /* 字体大小 */
+    color: #000000;
+    margin: -5px 0 15px 0;  /* 边距 */
+    flex-wrap: nowrap;      /* 防止换行 */
+}
+
+.popup-description-label {
+    font-size: 14px;        /* 标签字体大小 */
+    color: #000000;
+}
+
+.popup-description-id {
+    font-size: 14px;        /* ID字体大小 */
+    color: #000000;            /* ID颜色加深 */
+    font-weight: 500;       /* ID字体加粗 */
+}
+
+/* 微信图标点击样式 */
+.f6-6 .social-link {
+    cursor: pointer;
+}
+
+/* 复制按钮样式 */
+.copy-btn {
+    padding: 2px 8px;
+    font-size: 12px;
+    color: #666;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: all 0.3s;
+}
+
+.copy-btn:hover {
+    background-color: #e8e8e8;
+}
+
+.copy-btn:active {
+    transform: scale(0.95);
+}
+
+/* 调整说明文字样式 */
+.popup-description {
+    display: flex;           
+    justify-content: center; 
+    align-items: center;     
+    gap: 5px;               
+    font-size: 14px;        
+    color: #000000;
+    margin: -5px 0 15px 0;  
+    flex-wrap: nowrap;      /* 防止换行 */
+}
+
+
+/* 导航栏样式更新 */
+.navigation-frame {
+    width: 100%;
+    height: 60px;
+    background-color: #e8e3e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-out;  /* 添加过渡效果 */
+    position: sticky;                     /* 使用粘性定位 */
+    top: 0;                              /* 固定在顶部 */
+    z-index: 1000;                       /* 确保显示在最上层 */
+}
+
+/* 导航栏固定样式 - 当滚动超过原始位置时应用 */
+.navigation-frame.sticky {
+    position: fixed;          /* 固定定位 */
+    top: 0;                  /* 固定在顶部 */
+    left: 50%;               /* 水平居中定位 */
+    transform: translateX(-50%); /* 水平居中偏移 */
+    width: 80%;              /* 与main-frame保持相同宽度 */
+    z-index: 1000;           /* 确保导航栏在其他内容之上 */
+    background-color: #e8e3e8; /* 与原背景色相同 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 添加阴影效果增加层次感 */
+}
+
+/* 导航栏占位符样式 - 防止固定定位导致的页面跳动 */
+.navigation-placeholder {
+    height: 60px;           /* 与导航栏高度相同 */
+    display: none;          /* 默认隐藏 */
+}
+
+/* 占位符激活样式 - 当导航栏固定时显示 */
+.navigation-placeholder.active {
+    display: block;         /* 显示占位符 */
+}
+
+.navigation-placeholder {
+    height: 50px;
+    display: none;
 }

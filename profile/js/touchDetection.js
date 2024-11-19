@@ -26,10 +26,46 @@ function initTouchDetection() {
         event.preventDefault();
     });
 
-    // 可选：禁用鼠标滚轮缩放
+    // 禁用鼠标滚轮缩放
     document.addEventListener('wheel', function(event) {
         if (event.ctrlKey) {
             event.preventDefault();
         }
     }, { passive: false });
-} 
+
+    // 记录触摸起始位置
+    let startX = null;
+    let startY = null;
+
+    // 监听触摸开始
+    document.addEventListener('touchstart', function(event) {
+        startX = event.touches[0].clientX;
+        startY = event.touches[0].clientY;
+    }, { passive: true });
+
+    // 监听触摸移动
+    document.addEventListener('touchmove', function(event) {
+        if (!startX || !startY) {
+            return;
+        }
+
+        let moveX = event.touches[0].clientX;
+        let moveY = event.touches[0].clientY;
+        let diffX = Math.abs(moveX - startX);
+        let diffY = Math.abs(moveY - startY);
+
+        // 如果水平移动距离大于垂直移动距离，则阻止默认行为
+        if (diffX > diffY) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+
+    // 监听触摸结束
+    document.addEventListener('touchend', function() {
+        startX = null;
+        startY = null;
+    }, { passive: true });
+}
+
+// 页面加载时初始化
+window.addEventListener('load', initTouchDetection); 

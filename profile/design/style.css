@@ -23,7 +23,7 @@ html, body {
 #main-frame {
     width: 80%;                  /* 主框架宽度 */
     height: auto;                /* 高度自适应 */
-    margin: 125px auto 100px;    /* 上边距125px，下边距100px，水平居中 */
+    margin: 125px auto 30px;    /* 上边距125px，下边距100px，水平居中 */
     position: relative;          /* 相对定位 */
     background-color: white;     /* 白色背景 */
     box-shadow: 0 0 20px rgba(0,0,0,0.2); /* 添加阴影效果 */
@@ -39,8 +39,9 @@ html, body {
     transform: translateX(-50%); /* 水平居中 */
     top: -60px;                 /* 上移60px */
     overflow: hidden;           /* 超出部分隐藏 */
-    border: 5px solid white;    /* 白色边框 */
+    border: 3px solid white;    /* 白色边框 */
     box-shadow: 0 0 10px rgba(0,0,0,0.1); /* 阴影效果 */
+    z-index: 1000;            
 }
 
 .image-frame img {
@@ -96,7 +97,17 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: top 0.3s ease-out; /* 添加过渡效果 */
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.navigation-placeholder {
+    height: 60px;
+    display: none;
+}
+
+.navigation-placeholder.active {
+    display: block;
 }
 
 .nav-items {
@@ -421,7 +432,7 @@ html, body {
 /* f3.3.1 图片区域样式（左侧） */
 .f3-3-1 {
     width: 25%;             /* 宽度保持25% */
-    height: 200px;          /* 高度保持不变 */
+    height: 150px;          /* 高度保持不变 */
     overflow: hidden;       /* 超出部分隐藏 */
     margin: 0 30px;         /* 左右边距从20px增加到30px */
 }
@@ -461,7 +472,7 @@ html, body {
 /* f3.4.1 图片区域样式（左侧） */
 .f3-4-1 {
     width: 25%;             /* 宽度保持25% */
-    height: 200px;          /* 高度保持不变 */
+    height: 150px;          /* 高度保持不变 */
     overflow: hidden;       /* 超出部分隐藏 */
     margin: 0 30px;         /* 左右边距从20px增加到30px */
 }
@@ -501,7 +512,7 @@ html, body {
 /* f3.5.1 图片区域样式（左侧） */
 .f3-5-1 {
     width: 25%;             /* 宽度保持25% */
-    height: 200px;          /* 高度保持不变 */
+    height: 150px;          /* 高度保持不变 */
     overflow: hidden;       /* 超出部分隐藏 */
     margin: 0 30px;         /* 左右边距从20px增加到30px */
 }
@@ -974,7 +985,7 @@ html, body {
     border-radius: 18px;
 }
 
-/* 说明文字样式 */
+/* ���明文字样式 */
 .popup-description {
     font-size: 16px;
     color: #666;
@@ -986,135 +997,37 @@ html, body {
     cursor: pointer;
 }
 
-/* 在文件末尾添加响应式设计样式 */
-
-/* 平板设备 (768px 到 1024px) */
-@media screen and (max-width: 1024px) {
-    #main-frame {
-        width: 90%;
-        margin: 100px auto 50px;
-    }
-
-    .nav-items {
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-
-    .frame1, .f2-3, .f2-4, .f2-5 {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .f1-1, .f1-2, 
-    .f2-3-1, .f2-3-2,
-    .f2-4-1, .f2-4-2,
-    .f2-5-1, .f2-5-2 {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .social_media_icon_frame {
-        flex-wrap: wrap;
-        gap: 30px;
-    }
+/* 复制按钮样式 */
+.copy-btn {
+    padding: 2px 8px;
+    font-size: 12px;
+    color: #666;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: all 0.3s;
 }
 
-/* 手机设备 (768px 以下) */
-@media screen and (max-width: 768px) {
-    #main-frame {
-        width: 95%;
-        margin: 80px auto 30px;
-    }
-
-    .profile-frame {
-        height: auto;
-        padding: 40px 20px;
-    }
-
-    .profile-info {
-        margin-top: 40px;
-    }
-
-    .profile-name {
-        font-size: 32px;
-    }
-
-    .profile-text:nth-child(2) {
-        font-size: 24px;
-    }
-
-    .nav-items {
-        gap: 15px;
-        padding: 10px;
-    }
-
-    .nav-item {
-        font-size: 14px;
-    }
-
-    .f4-container {
-        flex-direction: column;
-        padding: 0 20px;
-    }
-
-    .social_media_icon_frame {
-        gap: 20px;
-        padding: 10px;
-    }
-
-    .social-icon {
-        width: 80px;
-        height: 80px;
-    }
-
-    .icon-image {
-        width: 40px;
-        height: 40px;
-    }
-
-    /* 调整弹窗样式 */
-    .popup-content {
-        width: 95%;
-        padding: 20px;
-    }
-
-    .qr-code-container {
-        width: 180px;
-        height: 180px;
-    }
+.copy-btn:hover {
+    background-color: #e8e8e8;
 }
 
-/* 小型手机设备 (375px 以下) */
-@media screen and (max-width: 375px) {
-    .profile-name {
-        font-size: 28px;
-    }
+.copy-btn:active {
+    transform: scale(0.95);
+}
 
-    .profile-text:nth-child(2) {
-        font-size: 20px;
-    }
-
-    .nav-items {
-        gap: 10px;
-    }
-
-    .nav-item {
-        font-size: 12px;
-    }
-
-    .social_media_icon_frame {
-        gap: 15px;
-    }
-
-    .social-icon {
-        width: 60px;
-        height: 60px;
-    }
-
-    .icon-image {
-        width: 30px;
-        height: 30px;
-    }
+/* 调整说明文字样式 */
+.popup-description {
+    display: flex;           
+    justify-content: center; 
+    align-items: center;     
+    gap: 5px;               
+    font-size: 14px;        
+    color: #000000;
+    margin: -5px 0 15px 0;  
+    flex-wrap: nowrap;      /* 防止换行 */
 }
 
 /* 导航栏样式更新 */
@@ -1125,7 +1038,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: top 0.3s ease-out; /* 添加过渡效果 */
+    transition: all 0.3s ease-out; /* 添加过渡效果 */
 }
 
 /* 导航栏固定样式 - 当滚动超过原始位置时应用 */

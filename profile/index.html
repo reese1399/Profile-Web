@@ -14,12 +14,14 @@
 </head>
 <body>
     <div id="outside-frame">
+        
+         <!-- 头像框架 -->
+        <div class="image-frame">
+            <img src="./image file/nandar.png" alt="Profile Image">
+        </div>
+        
         <!-- 主框架 -->
         <div id="main-frame">
-            <!-- 头像框架 -->
-            <div class="image-frame">
-                <img src="./image file/nandar.png" alt="Profile Image">
-            </div>
             <!-- 个人资料框架 -->
             <div class="profile-frame">
                 <div class="profile-info">
@@ -94,7 +96,7 @@
                         <div class="text-content">
                             <h2 class="f1-title">标题文字</h2>
                             <div class="f1-line"></div>
-                            <p class="f1-text">正文内容</p>
+                            <p class="f1-text">我一直喜欢文字和讲故事，也沉迷于数字和技术的一切（我属于这个领域）。</p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +107,7 @@
                         <div class="text-content">
                             <h2 class="f1-title">标题文字</h2>
                             <div class="f1-line"></div>
-                            <p class="f1-text">正文内容</p>
+                            <p class="f1-text">我一直喜欢文字和讲故事，也沉迷于数字和技术的一切（我属于这个领域）。</p>
                         </div>
                     </div>
                     <!-- f2.5.2 图片上传区域 -->
@@ -137,7 +139,7 @@
                     <div class="f3-3-2">
                         <div class="f3-text-content">
                             <h3 class="f3-content-title">2020 - 2023</h3>
-                            <p class="f3-content-text">工作经历描述</p>
+                            <p class="f3-content-text">我一直喜欢文字和讲故事，也沉迷于数字和技术的一切（我属于这个领域）。</p>
                         </div>
                     </div>
                 </div>
@@ -151,7 +153,7 @@
                     <div class="f3-4-2">
                         <div class="f3-text-content">
                             <h3 class="f3-content-title">2018 - 2020</h3>
-                            <p class="f3-content-text">工作经</p>
+                            <p class="f3-content-text">我一直喜欢文字和讲故事，也沉迷于数字和技术的一切（我属于这个领域）。</p>
                         </div>
                     </div>
                 </div>
@@ -165,7 +167,7 @@
                     <div class="f3-5-2">
                         <div class="f3-text-content">
                             <h3 class="f3-content-title">2016 - 2018</h3>
-                            <p class="f3-content-text">工作经历描述</p>
+                            <p class="f3-content-text">我一直喜欢文字和讲故事，也沉迷于数字和技术的一切（我属于这个领域）。</p>
                         </div>
                     </div>
                 </div>
@@ -304,7 +306,7 @@
 
     <!-- 微信弹窗主框架 wechat-popup-frame -->
     <div id="wechat-popup" class="wechat-popup">
-        <!-- 弹窗内容框架 popup-content-frame -->
+        <!-- 弹窗容框架 popup-content-frame -->
         <div class="popup-content">
             <!-- 关闭按钮框架 close-button-frame -->
             <span class="close-btn" onclick="closeWeChatPopup()">&times;</span>
@@ -314,14 +316,18 @@
             
             <!-- 二维码容器框架 qr-container-frame -->
             <div class="qr-code-container">
-                <!-- 二维��图片框架 qr-image-frame -->
+                <!-- 二维图片框架 qr-image-frame -->
                 <img src="image file/wechatqr.png" 
                      alt="WeChat QR Code" 
                      class="qr-code-image">
             </div>
             
-            <!-- 说明文字框架 description-frame -->
-            <p class="popup-description">WeChat ID: HYu4008</p>
+            <!-- 说明文字部分 -->
+            <div class="popup-description">
+                <span class="popup-description-label">WeChat ID: </span>
+                <span class="popup-description-id">HYu4008</span>
+                <button class="copy-btn" onclick="copyID()">Copy</button>
+            </div>
         </div>
     </div>
 
@@ -331,5 +337,6 @@
     <script src="js/navigation.js"></script>
     <script src="js/wxpopup.js"></script>
     <script src="script.js"></script>
+    <script src="js/socialmedia_popup_copy.js"></script>
 </body>
 </html> 
